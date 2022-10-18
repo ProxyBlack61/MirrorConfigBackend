@@ -8,8 +8,9 @@ const getClockSettings = (req, res) => {
   res.json(clockSettings);
 };
 const postClockSettings = (req, res) => {
+  console.log(req.body);
   MasterData.config.modules[0].config = req.body;
-  fileUtils.saveFile("./test.txt", MasterData.config);
+  fileUtils.saveFile(MasterData.defaultPath, MasterData.config);
   res.send("");
 };
 

@@ -1,7 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const MasterData = require("./Models/master.config");
 const cors = require("cors");
 const clockRoutes = require("./Routes/clock.routes");
+const fileUtils = require("./Controllers/file.utils");
+
+fileUtils.readFile(MasterData.defaultPath);
 
 const app = express();
 const port = 3000;
