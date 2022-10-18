@@ -76,5 +76,13 @@
   "bugs": {
     "url": "https://github.com/ProxyBlack61/MirrorConfigBackend/issues"
   },
-  "homepage": "https://github.com/ProxyBlack61/MirrorConfigBackend#readme"
+  "homepage": "https://github.com/ProxyBlack61/MirrorConfigBackend#readme",
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.1.0",
+    "prettier": "^2.7.1"
+  }
 }
