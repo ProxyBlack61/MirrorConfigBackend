@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const clockRoutes = require("./Routes/clock.routes");
 
@@ -10,7 +11,7 @@ app.use(
   }),
 );
 
-app.use("/", clockRoutes);
+app.use("/", bodyParser.json(), clockRoutes);
 
 app.listen(port, () => {
   console.log(
