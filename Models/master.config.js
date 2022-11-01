@@ -1,8 +1,4 @@
 class MasterConfig {
-  static savedConfig = {
-
-  };
-
   static activeConfig = {
   };
 
@@ -10,7 +6,12 @@ class MasterConfig {
     return config.modules.find((module) => module.module === moduleName);
   }
 
-  static defaultPath = "/home/kilian/MagicMirror/config/config.js";
+  static removeModule (moduleName, config) {
+    config.modules = config.modules.filter((module) => module.module !== moduleName);
+  }
+
+  static defaultPathActive = "/home/smartMirror/MagicMirror/config/config.js";
+  static defaultPathSaved = "/home/smartMirror/MagicMirror/config/SavedConfig.js";
 
   static defaultConfig = {
     address: "localhost",
