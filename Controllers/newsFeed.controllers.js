@@ -1,19 +1,19 @@
 const MasterData = require("../Models/master.config");
 const fileUtils = require("../Controllers/file.utils");
 
-const getClockSettings = (req, res) => {
+const getNewsFeedSettings = (req, res) => {
   console.log("GET CLOCK SETTINGS");
 
   const settings = {};
-  settings.module = MasterData.findModule("clock", MasterData.activeConfig);
+  settings.module = MasterData.findModule("newsfeed", MasterData.activeConfig);
 
   res.json(settings);
 };
 
-const postClockSettings = (req, res) => {
+const postNewsFeedSettings = (req, res) => {
   console.log("POST CLOCK SETTINGS");
 
-  MasterData.removeModule("clock", MasterData.activeConfig);
+  MasterData.removeModule("newsfeed", MasterData.activeConfig);
   MasterData.activeConfig.modules.push(req.body.module);
 
   fileUtils.saveFile();
@@ -21,6 +21,6 @@ const postClockSettings = (req, res) => {
 };
 
 module.exports = {
-  getClockSettings,
-  postClockSettings,
+  getNewsFeedSettings,
+  postNewsFeedSettings,
 };

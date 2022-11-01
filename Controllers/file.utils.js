@@ -22,7 +22,7 @@ function saveFile () {
     console.log("CREATED WINDOWS DEBUG FILE");
 
     // Save to activeConfig
-    doSaveFile("./activeConfig.txt", MasterData.activeConfig);
+    doSaveFile("A:\\MirrorSoftware\\MagicMirror\\config\\config.js", MasterData.activeConfig);
   } else if (process.platform === "linux") {
     // Save to activeConfig
     doSaveFile(MasterData.defaultPathActive, MasterData.activeConfig);
@@ -52,7 +52,7 @@ function readFile () {
     console.log("READ WINDOWS DEBUG FILE");
 
     // Read activeConfig
-    doReadFile("./activeConfig.txt");
+    doReadFile("A:\\MirrorSoftware\\MagicMirror\\config\\config.js");
   } else if (process.platform === "linux") {
     // Read activeConfig
     doReadFile(MasterData.defaultPathActive);
