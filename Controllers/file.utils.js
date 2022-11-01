@@ -2,25 +2,6 @@ const process = require("process");
 const MasterData = require("../Models/master.config");
 const fs = require("fs");
 
-const doReadFile = (fileName) => {
-  fs.readFile("./textconfig.txt", "utf8", (err, data) => {
-    if (err) {
-      console.log("Couldn't read file using default config");
-      MasterData.config = MasterData.defaultConfig;
-      this.saveFile(fileName, MasterData.config);
-    } else {
-      try {
-        MasterData.config = JSON.parse(data.substring(data.indexOf("{"), data.lastIndexOf("};") + 1));
-      } catch (e) {
-        console.log("Couldn't parse file using default config");
-        MasterData.config = MasterData.defaultConfig;
-        this.saveFile(fileName, MasterData.config);
-      }
-      console.log("Loaded file!");
-    }
-  });
-};
-
 const doSaveFile = (fileName, fileContent) => {
   const fileText = "let config =" +
       "" + JSON.stringify(fileContent, null, 2) + "" +
@@ -43,6 +24,25 @@ const saveFile = (fileName, fileContent) => {
   } else if (process.platform === "linux") {
     doSaveFile(fileName, fileContent);
   }
+};
+
+const doReadFile = (fileName) => {
+  fs.readFile("./textconfig.txt", "utf8", (err, data) => {
+    if (err) {
+      console.log("Couldn't read file using default config");
+      MasterData.activeConfig = MasterData.defaultConfig;
+      MasterData.savedConfig = MasterData.defaultConfig;
+    } else {
+      try {
+        MasterData.savedConfig = JSON.parse(data.substring(data.indexOf("{"), data.lastIndexOf("};") + 1));
+        MasterData.activeConfig = JSON.parse(data.substring(data.indexOf("{"), data.lastIndexOf("};") + 1));
+      } catch (e) {
+        console.log("Couldn't parse file using default config");
+        MasterData.config = MasterData.defaultConfig;
+      }
+      console.log("Loaded file!");
+    }
+  });
 };
 
 const readFile = (fileName) => {

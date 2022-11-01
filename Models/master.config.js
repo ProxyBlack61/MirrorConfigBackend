@@ -1,6 +1,14 @@
 class MasterConfig {
-  static config = {
+  static savedConfig = {
+
   };
+
+  static activeConfig = {
+  };
+
+  static findModule (moduleName, config) {
+    return config.modules.find((module) => module.module === moduleName);
+  }
 
   static defaultPath = "/home/kilian/MagicMirror/config/config.js";
 
