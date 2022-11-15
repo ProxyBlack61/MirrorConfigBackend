@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const clockRoutes = require("./Routes/clock.routes");
+const clockRoutes = require("./Routes/routes");
 const fileUtils = require("./Controllers/file.utils");
 
 fileUtils.readFile();

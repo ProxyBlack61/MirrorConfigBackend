@@ -22,6 +22,7 @@ function saveFile () {
     console.log("CREATED WINDOWS DEBUG FILE");
 
     // Save to activeConfig
+    // Filepath not final yet
     doSaveFile("A:\\MirrorSoftware\\MagicMirror\\config\\config.js", MasterData.activeConfig);
   } else if (process.platform === "linux") {
     // Save to activeConfig
@@ -52,6 +53,7 @@ function readFile () {
     console.log("READ WINDOWS DEBUG FILE");
 
     // Read activeConfig
+    // Filepath not final yet
     doReadFile("A:\\MirrorSoftware\\MagicMirror\\config\\config.js");
   } else if (process.platform === "linux") {
     // Read activeConfig

@@ -10,8 +10,8 @@ class MasterConfig {
     config.modules = config.modules.filter((module) => module.module !== moduleName);
   }
 
+  // Filepath not final yet
   static defaultPathActive = "/home/smartMirror/MagicMirror/config/config.js";
-  static defaultPathSaved = "/home/smartMirror/MagicMirror/config/SavedConfig.js";
 
   static defaultConfig = {
     address: "localhost",
